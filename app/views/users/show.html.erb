@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.favors.any? %>
+      <h3>Favors (<%= @user.favors.count %>)</h3>
+      <ol class="favors">
+        <%= render @favors %>
+      </ol>
+      <%= will_paginate @favors %>
+    <% end %>
+  </div>
 </div>

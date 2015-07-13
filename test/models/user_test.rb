@@ -61,4 +61,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
   
+  test "associated favors should be destroyed" do
+    @user.save
+    @user.favors.create!(content: "Lorem ipsum")
+    assert_difference 'Favor.count', -1 do
+      @user.destroy
+    end
+  end
+  
 end
