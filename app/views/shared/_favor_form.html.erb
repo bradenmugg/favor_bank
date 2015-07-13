@@ -3,5 +3,6 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new favor request..." %>
   </div>
+  <%= f.select :favor_cost, ([1,2,3,4,5]) %>
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>

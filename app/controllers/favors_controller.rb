@@ -15,7 +15,7 @@ class FavorsController < ApplicationController
 
   def destroy
     @favor.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "Favor deleted"
     redirect_to request.referrer || root_url
   end
   
@@ -27,7 +27,7 @@ class FavorsController < ApplicationController
   private
 
     def favor_params
-      params.require(:favor).permit(:content)
+      params.require(:favor).permit(:content, :favor_cost)
     end
   
 end
