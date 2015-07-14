@@ -10,29 +10,6 @@ class User < ActiveRecord::Base
       uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-
-  # after_save :update_favor_points
-
-  #def my_requested_favors
-  #  Favor.where(user_id: self.id)
-  #end
-  
-  #def completed_favors
-  #  Favor.where(helper_id: self.id)
-  #end
-  
-  #def update_favor_points
-  #  update_attribute!(:favor_points, points_earned - points_spent + 10)
-  #end
-  
-  #def points_earned
-  #  completed_favors.sum(:favor_cost)
-  #  # rename cost to value
-  #end
-  
-  #def points_spent
-  #  self.my_requested_favors.sum(:favor_cost) #cost not favor_cost
-  #end
   
   # Returns the hash digest of the given string.
   def User.digest(string)

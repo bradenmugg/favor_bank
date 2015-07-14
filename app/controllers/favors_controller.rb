@@ -1,5 +1,5 @@
 class FavorsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :update]
   before_action :correct_user,   only: :destroy
     
   def create
@@ -12,11 +12,19 @@ class FavorsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def update
+    @favor = Favor.find(params[:id])
+    @favor.update_attribute(:helper_id, current_user.id)
+    @favor.update_attribute(:status, "in progress")
+    flash[:success] = "Favor accepted"
+    redirect_to request.referrer || root_url
+  end
 
   def destroy
     @favor.destroy
     flash[:success] = "Favor deleted"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
   
   def correct_user

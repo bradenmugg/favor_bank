@@ -5,9 +5,13 @@
   <span class="content"><%= favor.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(favor.created_at) %> ago.
-     <% if current_user?(favor.user) %>
+     <% if (current_user?(favor.user) && favor.status == "open") %>
       <%= link_to "delete", favor, method: :delete,
         data: { confirm: "Are you sure you would like to delete this favor request?" } %>
+     <% end %>
+     <% if (!current_user?(favor.user) && favor.status == "open") %>
+      <%= link_to "accept", favor, method: :update,
+        data: { confirm: "Perform this favor?" } %>
     <% end %>
   </span>
 </li>
