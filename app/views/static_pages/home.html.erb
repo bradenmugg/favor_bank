@@ -9,8 +9,19 @@
       </section>
     </aside>
   <div class="col-md-8">
-      <h3>Favors</h3>
-      <%= render 'shared/feed' %>
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Favors
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" onchange="function()>
+    <li><a href="#">Open Favors Ascending</a></li>
+    <li><a href="#">Open Favors Descending</a></li>
+    <li><a href="#">My Favor Requests</a></li>
+    <li><a href="#">My Help Offers</a></li>
+  </ul>
+</div>
+    <div class="feed-container"></div>
     </div>
   </div>
 <% else %>
@@ -24,3 +35,4 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
+

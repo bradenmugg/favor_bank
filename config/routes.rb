@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :favors,          only: [:create, :destroy, :update, :create]
   match "/favors/:id" => "favors#update", via: [:get, :post]
+  patch '/favors/completed/:id' => 'favors#completed'
 end

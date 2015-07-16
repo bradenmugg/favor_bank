@@ -20,7 +20,15 @@ class FavorsController < ApplicationController
     flash[:success] = "Favor accepted"
     redirect_to request.referrer || root_url
   end
-
+  
+  def completed
+    @favor = Favor.find(params[:id])
+    @favor.update_attribute(:status, "completed")
+    @favor.add_favor_points
+    flash[:success] = "Favor completed"
+    redirect_to root_url
+  end
+    
   def destroy
     @favor.destroy
     flash[:success] = "Favor deleted"
