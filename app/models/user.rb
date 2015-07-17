@@ -76,6 +76,18 @@ class User < ActiveRecord::Base
     Favor.where status: "open"
   end
   
+  def completed_favors
+    Favor.where status: "completed"
+  end
+  
+  def my_favors
+    Favor.where user_id: self.id
+  end
+  
+  def helper_favors
+    Favor.where helper_id: self.id
+  end
+  
   private
 
     # Converts email to all lower-case.

@@ -1,11 +1,23 @@
 $( document ).ready(function() {
-  $('.feed-container').html("<%= escape_javascript(render('shared/open'))%>")
+  $('.feed-container').html("<%= escape_javascript(render('shared/feed'))%>")
   $( '.sort-dropdown li' ).click(function (e) {
         var id = $ ( e.target ).attr( "id" );
         console.log( id );
         if (id == "all") {
           $('.feed-container').html("<%= escape_javascript(render('shared/feed'))%>")
-        }; 
+        };
+        if (id == "open") {
+          $('.feed-container').html("<%= escape_javascript(render('shared/open'))%>")
+        };
+        if (id == "completed") {
+          $('.feed-container').html("<%= escape_javascript(render('shared/completed'))%>")
+        };
+        if (id == "mine") {
+          $('.feed-container').html("<%= escape_javascript(render('shared/mine'))%>")
+        };
+        if (id == "helper") {
+          $('.feed-container').html("<%= escape_javascript(render('shared/helper'))%>")
+        };
         e.stopPropagation();
     });
 });

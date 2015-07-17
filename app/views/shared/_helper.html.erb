@@ -1,0 +1,6 @@
+<% if @help_items.any? %>
+  <ol class="favors">
+    <%= render @help_items %>
+  </ol>
+  <%= will_paginate @help_items %>
+<% end %>
