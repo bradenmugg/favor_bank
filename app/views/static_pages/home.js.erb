@@ -1,3 +1,12 @@
 $( document ).ready(function() {
-  $('.feed-container').html("<%= escape_javascript(render('shared/feed'))%>")
+  $('.feed-container').html("<%= escape_javascript(render('shared/open'))%>")
+  $( '.sort-dropdown li' ).click(function (e) {
+        var id = $ ( e.target ).attr( "id" );
+        console.log( id );
+        if (id == "all") {
+          $('.feed-container').html("<%= escape_javascript(render('shared/feed'))%>")
+        }; 
+        e.stopPropagation();
+    });
 });
+

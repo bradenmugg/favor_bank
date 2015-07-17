@@ -1,0 +1,6 @@
+<% if @open_items.any? %>
+  <ol class="favors">
+    <%= render @open_items %>
+  </ol>
+  <%= will_paginate @open_items %>
+<% end %>
