@@ -13,7 +13,7 @@
       <%= link_to "accept", favor, method: :update,
         data: { confirm: "Perform this favor?" } %>
     <% end %>
-    <% if (current_user?(favor.user) && favor.status == "in_progress") %>
+    <% if (current_user?(favor.user) && favor.status == "in progress") %>
       <%= link_to "completed", favor, method: :completed,
         data: { confirm: "Mark this favor as completed?" } %>
     <% end %>
