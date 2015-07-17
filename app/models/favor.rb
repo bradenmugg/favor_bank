@@ -3,7 +3,7 @@ class Favor < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 300 }
-  after_create :deduct_favor_points
+  #after_create :deduct_favor_points
   before_destroy :return_favor_points
   
   def deduct_favor_points
