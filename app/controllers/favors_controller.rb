@@ -12,21 +12,21 @@ class FavorsController < ApplicationController
       render 'static_pages/home'
     end
   end
-  
+
   def update
     @favor = Favor.find(params[:id])
-    @favor.update_attribute(:helper_id, current_user.id)
-    @favor.update_attribute(:status, "in progress")
-    flash[:success] = "Favor accepted"
-    redirect_to request.referrer || root_url
-  end
-  
-  def completed
-    @favor = Favor.find(params[:id])
-    @favor.update_attribute(:status, "completed")
-    @favor.add_favor_points
-    flash[:success] = "Favor completed"
-    redirect_to root_url
+    if @favor.status == "in progress"
+      @favor.update_attribute(:status, "completed")
+      @favor.add_favor_points
+      flash[:success] = "Favor completed"
+      redirect_to root_url
+    else
+      @favor = Favor.find(params[:id])
+      @favor.update_attribute(:helper_id, current_user.id)
+      @favor.update_attribute(:status, "in progress")
+      flash[:success] = "Favor Accepted"
+      redirect_to request.referrer || root_url
+    end
   end
     
   def destroy

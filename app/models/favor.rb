@@ -17,7 +17,7 @@ class Favor < ActiveRecord::Base
   end
   
   def add_favor_points
-    user = User.where id == self.helper_id
+    user = User.where({ id: self.helper_id }).to_a[0]
     user.update_attribute(:favor_points, user.favor_points + self.favor_cost)
   end
   

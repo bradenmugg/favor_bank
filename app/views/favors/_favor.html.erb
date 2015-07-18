@@ -14,7 +14,7 @@
         data: { confirm: "Perform this favor?" } %>
     <% end %>
     <% if (current_user?(favor.user) && favor.status == "in progress") %>
-      <%= link_to "completed", favor, method: :completed,
+      <%= link_to "completed", favor, method: :update,
         data: { confirm: "Mark this favor as completed?" } %>
     <% end %>
     <%= favor.favor_cost %> Points
