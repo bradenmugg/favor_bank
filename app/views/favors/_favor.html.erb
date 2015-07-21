@@ -1,7 +1,7 @@
 <li id="favor-<%= favor.id %>">
   <%= link_to gravatar_for(favor.user), favor.user %>
   <span class="user"><%= link_to favor.user.name, favor.user %>
-    <% if favor.user.favor_points > 0 %>
+    <% if favor.user.favor_points >= 0 %>
       <span class="positive"><%= pluralize(favor.user.favor_points, "Favor Points") %></span>
     <% end %>
     <% if favor.user.favor_points < 0 %>
