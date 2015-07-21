@@ -33,6 +33,27 @@ textarea {
   }
 }
 
+.btn-primary {
+  background-color: black;
+  color: white;
+}
+
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
+
+.positive {
+  color: #24B694;
+}
+.negative {
+  color: #F86E63;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -206,6 +227,7 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+    
   }
   .gravatar {
     height: 50px;
@@ -225,6 +247,12 @@ input {
   .user {
     margin-top: 5em;
     padding-top: 0;
+  }
+  .positive {
+    color: #24B694
+  }
+  .negative {
+    color: #E33258
   }
   .content {
     display: block;
@@ -246,6 +274,9 @@ input {
     margin-right: 10px;
     margin-top: 0px;
   }
+  .cost {
+  color: #24B694;
+  }
 }
 
 aside {
@@ -259,5 +290,24 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+/* pagination */
+.pagination {
+  li {
+    a {
+    color: black;
+    }
+  }
+  .active {
+    a {
+      background-color: black;
+      border-color: black;
+      :hover {
+        background-color: black;
+        border-color: black;
+      }
+    }
   }
 }

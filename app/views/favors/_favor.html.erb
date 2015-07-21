@@ -1,7 +1,13 @@
 <li id="favor-<%= favor.id %>">
   <%= link_to gravatar_for(favor.user), favor.user %>
   <span class="user"><%= link_to favor.user.name, favor.user %>
-  <%= pluralize(favor.user.favor_points, "Favor Points") %></span>
+    <% if favor.user.favor_points > 0 %>
+      <span class="positive"><%= pluralize(favor.user.favor_points, "Favor Points") %></span>
+    <% end %>
+    <% if favor.user.favor_points < 0 %>
+      <span class="negative"><%= pluralize(favor.user.favor_points, "Favor Points") %></span>
+    <% end %>
+  </span>
   <span class="content"><%= favor.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(favor.created_at) %> ago.
@@ -17,6 +23,6 @@
       <%= link_to "completed", favor, method: :update,
         data: { confirm: "Mark this favor as completed?" } %>
     <% end %>
-    <%= favor.favor_cost %> Points
+    <span class="cost"><%= favor.favor_cost %> Points </span>
   </span>
 </li>

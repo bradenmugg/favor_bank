@@ -1,8 +1,12 @@
 <li>
   <%= gravatar_for user %>
   <%= link_to user.name, user %>
-  <%= user.favor_points %>
-  Favor Points
+  <% if user.favor_points >= 0 %>
+  <span class="positive"><%= pluralize(user.favor_points, "Favor Point") %></span>
+<% end %>
+<% if user.favor_points < 0 %>
+  <span class="negative"><%= pluralize(user.favor_points, "Favor Point") %></span>
+<% end %>
   <% if current_user.admin? && !current_user?(user) %>
       <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
