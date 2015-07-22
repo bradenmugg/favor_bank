@@ -36,6 +36,10 @@ textarea {
 .btn-primary {
   background-color: black;
   color: white;
+  border-color: black;
+}
+.btn-primary:hover {
+  background-color: gray;
 }
 
 
@@ -98,6 +102,16 @@ p {
     text-decoration: none;
   }
 }
+
+.navbar-inverse .navbar-nav > li > a  {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover  {
+  color: gray;
+}
+
+
 
 /* footer */
 
@@ -277,6 +291,9 @@ input {
   .cost {
   color: #24B694;
   }
+  .helper {
+    margin-left: 60px;
+  }
 }
 
 aside {
@@ -297,17 +314,25 @@ span.picture {
 .pagination {
   li {
     a {
-    color: black;
+      color: black;
+    }
+    a:hover {
+      color: gray;
     }
   }
   .active {
     a {
       background-color: black;
       border-color: black;
-      :hover {
-        background-color: black;
-        border-color: black;
-      }
+    }
+    a:hover {
+      background-color: gray;
+      border-color: gray;
     }
   }
+}
+
+/* about */
+p.question {
+  font-weight: bold;
 }

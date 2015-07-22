@@ -23,6 +23,11 @@
       <%= link_to "completed", favor, method: :update,
         data: { confirm: "Mark this favor as completed?" } %>
     <% end %>
-    <span class="cost"><%= favor.favor_cost %> Points </span>
+    <span class="cost"><%= pluralize(favor.favor_cost, "Point") %></span>
   </span>
+  <% if (favor.status == "in progress" || favor.status == "completed") %>
+    <% help_id = favor.helper_id %>
+    <% help_id = User.find(help_id) %>
+    <span class="helper"><%= "Favor request accepted by "%><%= link_to help_id.name, help_id %></span>
+  <% end %>
 </li>
