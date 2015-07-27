@@ -1,6 +1,6 @@
 class FavorsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :update]
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user, only: [:destroy, :update]
     
   def create
     @favor = current_user.favors.build(favor_params)
@@ -21,7 +21,6 @@ class FavorsController < ApplicationController
       flash[:success] = "Favor completed"
       redirect_to root_url
     else
-      @favor = Favor.find(params[:id])
       @favor.update_attribute(:helper_id, current_user.id)
       @favor.update_attribute(:status, "in progress")
       flash[:success] = "Favor Accepted"

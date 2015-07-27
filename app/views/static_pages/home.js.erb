@@ -1,4 +1,5 @@
-$( document ).ready(function() {
+console.log("loading home.js");
+$( document ).on("page:change", function() {
   $('.feed-container').html("<%= escape_javascript(render('shared/feed'))%>")
   $( '.sort-dropdown li' ).click(function (e) {
         var id = $ ( e.target ).attr( "id" );
@@ -19,6 +20,6 @@ $( document ).ready(function() {
           $('.feed-container').html("<%= escape_javascript(render('shared/helper'))%>")
         };
         e.stopPropagation();
-    });
+  });
 });
 

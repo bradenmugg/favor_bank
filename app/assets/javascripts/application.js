@@ -13,11 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-    $.getScript(this.href);
-});
+//$(function() {
+//    $.getScript(this.href);
+//});
