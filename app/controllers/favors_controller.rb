@@ -1,6 +1,6 @@
 class FavorsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :update]
-  before_action :correct_user, only: [:destroy, :update]
+  before_action :correct_user, only: :destroy
     
   def create
     @favor = current_user.favors.build(favor_params)

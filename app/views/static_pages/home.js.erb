@@ -19,7 +19,6 @@ $( document ).on("page:change", function() {
         if (id == "helper") {
           $('.feed-container').html("<%= escape_javascript(render('shared/helper'))%>")
         };
-        e.stopPropagation();
   });
 });
 
