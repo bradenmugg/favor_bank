@@ -1,7 +1,9 @@
+redis_url = ENV['REDISTOGO_URL']
+
 Sidekiq.configure_server do |config|
-  config.redis = { url: 'redis://redistogo:8dbe6d7cda51ed6a9bc1be2de72d8148@sole.redistogo.com:9483/' }
+  config.redis = { url: redis_url }
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: 'redis://redistogo:8dbe6d7cda51ed6a9bc1be2de72d8148@sole.redistogo.com:9483/' }
+  config.redis = { url: redis_url }
 end
