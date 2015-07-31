@@ -3,8 +3,8 @@
 <p>Hi <%= @user.name %>,</p>
 
 <p>
-@user_name has posted a new favor request on Favor Bank. They would like help with:
+<%= @user_name %> has posted a new favor request on Favor Bank. They would like help with:
 </p>
 <p><%= @favor.content %></p>
 
-<%= link_to "Offer to help", root_path %>
+<%= link_to "Offer to help", root_url %>
