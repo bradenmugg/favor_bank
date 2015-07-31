@@ -22,7 +22,7 @@ class Favor < ActiveRecord::Base
   end
 
   def new_favor_email
-    UserMailer.new_favor(self).deliver_now
+    UserMailer.delay.new_favor(self)
   end
   
 end
