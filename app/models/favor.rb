@@ -20,5 +20,9 @@ class Favor < ActiveRecord::Base
     user = User.where({ id: self.helper_id }).to_a[0]
     user.update_attribute(:favor_points, user.favor_points + self.favor_cost)
   end
+
+  def new_favor_email
+    UserMailer.new_favor(self).deliver_now
+  end
   
 end

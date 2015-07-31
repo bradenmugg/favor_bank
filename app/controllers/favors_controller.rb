@@ -5,6 +5,7 @@ class FavorsController < ApplicationController
   def create
     @favor = current_user.favors.build(favor_params)
     if @favor.save
+      @favor.new_favor_email
       flash[:success] = "Favor created!"
       redirect_to root_url
     else
