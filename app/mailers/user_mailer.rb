@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
   def new_favor(favor)
     @user = User.where(id: 1).first
     @favor = favor
-    @user_name = User.where(id: favor.user_id).name
+    @user_name = User.where(id: favor.user_id).first.name
     mail to: @user.email, subject: "New favor"
   end
 
