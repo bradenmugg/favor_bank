@@ -1,3 +1,5 @@
+require 'sidekiq'
+
 redis_url = ENV['REDISTOGO_URL']
 
 Sidekiq.configure_server do |config|
