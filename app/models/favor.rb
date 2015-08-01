@@ -22,7 +22,10 @@ class Favor < ActiveRecord::Base
   end
 
   def new_favor_email
-    UserMailer.delay.new_favor(self)
+    users = User.all
+    users.each do |user|
+      UserMailer.delay.new_favor(self.id, user.id)
+    end
   end
   
 end

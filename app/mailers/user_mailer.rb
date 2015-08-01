@@ -10,14 +10,11 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Account activation"
   end
 
-  def new_favor(favor)
-    @users = User.all
-    @favor = favor
-    @user_name = User.where(id: favor.user_id).first.name
-    @users.each do |user|
-      @user = user
-      mail to: @user.email, subject: "New favor"
-    end
+  def new_favor(favor_id, user_id)
+    @user = User.find(user_id)
+    @favor = favor.find(favor_id)
+    @user_name = User.where(id: @favor.user_id).first.name
+    mail to: @user.email, subject: "New favor"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
